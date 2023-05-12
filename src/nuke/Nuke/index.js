@@ -9,7 +9,7 @@ async function toArray(asyncIterator){
 
 module.exports = async function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
-
+    
     var subscription_id = "91f277f3-0f24-4e0f-a841-15d287766a59";
     const credential = new DefaultAzureCredential();
 
@@ -21,6 +21,6 @@ module.exports = async function (context, req) {
     });
     context.res = {
         // status: 200, /* Defaults to 200 */
-        body: out
+        body: "TESTINGCICD"
     };
 }
