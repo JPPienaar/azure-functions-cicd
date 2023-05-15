@@ -30,7 +30,7 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: walmart-dev-ukw-app
-        slot-name: testing
+        slot-name: Production
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3657D76383234F8A8EF7531F849764F9 }}
         package: ${{ github.workspace }}/target/*.jar
 
