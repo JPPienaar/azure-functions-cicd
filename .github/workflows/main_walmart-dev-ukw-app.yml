@@ -21,7 +21,7 @@ jobs:
     - name: Set up Java version
       uses: actions/setup-java@v1
       with:
-        java-version: '6'
+        java-version: '8'
 
     - name: Build with Maven
       run: mvn clean install
@@ -31,6 +31,6 @@ jobs:
       with:
         app-name: walmart-dev-ukw-app
         slot-name: Production
-        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_72A26C4D478E4C08B2FF660075263F3E }}
+        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3657D76383234F8A8EF7531F849764F9 }}
         package: ${{ github.workspace }}/target/*.jar
 
