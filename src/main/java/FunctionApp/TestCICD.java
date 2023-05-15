@@ -1,4 +1,4 @@
-package com.function;
+package FunctionApp;
 
 import java.util.*;
 import com.microsoft.azure.functions.annotation.*;
