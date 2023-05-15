@@ -1,4 +1,4 @@
-package com.function;
+package FunctionApp;
 
 
 import com.microsoft.azure.functions.ExecutionContext;
