@@ -25,9 +25,7 @@ jobs:
 
     - name: Build with Maven
       run: mvn clean install
-    
-    - name: Package
-      run: mvn package
+
     - name: DEBUG
       run : ls ${{ github.workspace }}/target/
 
