@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.function</groupId>
-    <artifactId>test-java</artifactId>
+    <artifactId>FunctionApp</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
@@ -14,7 +14,7 @@
         <java.version>1.8</java.version>
         <azure.functions.maven.plugin.version>1.26.0</azure.functions.maven.plugin.version>
         <azure.functions.java.library.version>3.0.0</azure.functions.java.library.version>
-        <functionAppName>test-java-1683188770269</functionAppName>
+        <functionAppName>FunctionApp-1683188770269</functionAppName>
     </properties>
 
     <dependencies>
