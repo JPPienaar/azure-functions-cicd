@@ -7,9 +7,6 @@ on:
   push:
     branches:
       - main
-env:
-  POM_XML_DIRECTORY: '.'                    # set this to the directory which contains pom.xml file
-  JAVA_VERSION: '17'                         # set this to the java version to use (e.g. '8', '11', '17')
 
 jobs:
   build-and-deploy:
@@ -26,18 +23,14 @@ jobs:
       with:
         java-version: '17'
 
-    - name: 'Restore Project Dependencies Using Mvn'
-      shell: pwsh
-      run: |
-        pushd './${{ env.POM_XML_DIRECTORY }}'
-        mvn clean package
-        popd
-  
-    - name: 'Run Azure Functions Action'
-      uses: Azure/functions-action@v1
-      id: fa
+    - name: Build with Maven
+      run: mvn clean install
+
+    - name: Run Azure webapp deploy action using publish profile credentials
+      uses: azure/webapps-deploy@v2
       with:
         app-name: walmart-dev-ukw-app
-        package: '${{ env.POM_XML_DIRECTORY }}' # if there are multiple function apps in same project, then this path will be like './${{ env.POM_XML_DIRECTORY }}/target/azure-functions/${{ env.POM_FUNCTIONAPP_NAME }'
-        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3657D76383234F8A8EF7531F849764F9  }}
-        respect-pom-xml: true
+        slot-name: Production
+        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9CBB2FFDBBCC417BB10F5A8D7375A2C0 }}
+        package: ${{ github.workspace }}/target/*.jar
+
